@@ -1,16 +1,16 @@
 /* Estilos del encabezado */
-header {
+/* header {
     background-color: #007FFF;
     height: 75px;
     width: 100%;
 }
 
-header > p {/*titulo*/
+header > p {
     color: #FFFFFF;
     font: bold 1.6em "segoe ui", arial, sans-serif;
     padding-top: 20px;
-    text-align: center; /* Centra el texto en el encabezado */
-}
+    text-align: center; 
+} */
 
 /* Estilos del cuerpo principal */
 main {
