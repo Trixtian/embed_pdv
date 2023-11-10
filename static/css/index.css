@@ -1,16 +1,5 @@
-/* Estilos del encabezado */
-/* header {
-    background-color: #007FFF;
-    height: 75px;
-    width: 100%;
-}
 
-header > p {
-    color: #FFFFFF;
-    font: bold 1.6em "segoe ui", arial, sans-serif;
-    padding-top: 20px;
-    text-align: center; 
-} */
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 /* Estilos del cuerpo principal */
 main {
@@ -26,15 +15,35 @@ section#text-container > div > p {
 
 /* Estilos del contenedor del informe */
 section#report-container {
-    height: 70vh; /* Establece la altura al 100% de la altura de la ventana gráfica (viewport) */
+    height: 78vh; 
     width: 100%; /* Asegura que el ancho se ajuste a toda la pantalla */
     overflow: hidden;
 }
 
-
-
-
-
 iframe {
     border: none;
+}
+
+#div_top{
+    background-color:#ffffff; /* Color de fondo */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 15px, rgba(0, 0, 0, 0.12) 0px -12px 10px; 
+    padding: 5px; /* Ajusta el espacio interno según tus necesidades */
+    color: rgb(0, 0, 0);
+
+
+}
+
+
+#title_report{
+    display: grid;
+    place-items: center;
+    width: 90vw;
+    height: auto;
+}
+
+
+#salir{
+    border: none;
+    font-size: 28px;
+ 
 }

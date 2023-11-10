@@ -18,6 +18,7 @@ window.addEventListener("load", function () {
     })
         .then(response => response.json())
         .then(data => {
+            
 
             reportLoadConfig.accessToken = data.accessToken;
 

@@ -1,5 +1,4 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT license.
+
 
 from services.pbiembedservice import PbiEmbedService
 from utils import Utils
@@ -12,6 +11,7 @@ app = Flask(__name__)
 
 # Load configuration
 app.config.from_object('config.BaseConfig')
+
 
 @app.route('/')
 def index():
@@ -30,14 +30,54 @@ def api_login():
     api_data = {"usuario": username, "password": password}
     response = requests.post(api_url, json=api_data)
     response_data = response.json()
-    
+    print(response_data)
+
     if response.status_code == 200:
         return response_data
-    else:
+    
+    elif response.status_code == 400:
+    # Solicitud de sintaxis inválida
         return jsonify({
-                    "error": "Error en la solicitud a la segunda API",
-                    "code": 402
-                })
+        "error": "Solicitud de sintaxis inválida",
+        "code": 400
+    })
+    elif response.status_code == 401:
+    # No autorizado
+        return jsonify({
+        "error": "Usuario o contraseña icorrectos",
+        "code": 401
+    })
+    elif response.status_code == 402:
+    # No autorizado
+        return jsonify({
+        "error": "Sin acceso a la informacion", #sin acceso a la API 
+        "code": 402
+    })
+        
+    elif response.status_code == 403:
+        # Prohibido
+        return jsonify({
+            "error": "Acceso no autorizado",
+            "code": 403
+        })
+    elif response.status_code == 404:
+        # No encontrado
+        return jsonify({
+            "error": "Recurso no encontrado",
+            "code": 404
+        })
+    elif response.status_code == 500:
+        # Error interno del servidor
+        return jsonify({
+            "error": "Error interno del servidor",
+            "code": 500
+        })
+    else:
+        # Otros códigos de estado no manejados
+        return jsonify({
+            "error": "Error desconocido",
+            "code": response.status_code
+        })
 
 
 @app.route('/get-co-list', methods=['POST'])
@@ -53,11 +93,51 @@ def getCoList():
         
     if response.status_code == 200:
         return response_data
-    else:
+    
+    elif response.status_code == 400:
+    # Solicitud de sintaxis inválida
         return jsonify({
-                    "error": "Error en la solicitud a la segunda API",
-                    "code": 402
-                })
+        "error": "Solicitud de sintaxis inválida",
+        "code": 400
+    })
+    elif response.status_code == 401:
+    # No autorizado
+        return jsonify({
+        "error": "Usuario o contraseña icorrectos",
+        "code": 401
+    })
+         
+    elif response.status_code == 402:
+    # No autorizado
+        return jsonify({
+        "error": "Sin acceso a la informacion",
+        "code": 402
+    })
+        
+    elif response.status_code == 403:
+        # Prohibido
+        return jsonify({
+            "error": "Acceso no autorizado",
+            "code": 403
+        })
+    elif response.status_code == 404:
+        # No encontrado
+        return jsonify({
+            "error": "Recurso no encontrado",
+            "code": 404
+        })
+    elif response.status_code == 500:
+        # Error interno del servidor
+        return jsonify({
+            "error": "Error interno del servidor",
+            "code": 500
+        })
+    else:
+        # Otros códigos de estado no manejados
+        return jsonify({
+            "error": "Error desconocido",
+            "code": response.status_code
+        })
 
 
 @app.route('/dashboard', methods=['GET'])
