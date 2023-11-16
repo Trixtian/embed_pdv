@@ -1,5 +1,3 @@
-# Este script Python es parte de una aplicación web que utiliza Flask para generar tokens de acceso
-# para acceder a los servicios de Microsoft Power BI a través de la autenticación de Azure Active Directory (AAD).
 
 from flask import current_app as app  # Importa el módulo 'current_app' de Flask.
 import msal  # Importa la Biblioteca de Autenticación de Microsoft (msal).
