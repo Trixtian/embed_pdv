@@ -74,7 +74,7 @@ select.addEventListener("change", function () {
     report.setFilters([{
         $schema: "http://powerbi.com/product/schema#basic",
         target: {
-            table: 'centros_operaciones',
+            table: 'ventas_detalladas_maxicassa',
             column: 'centro_operaciones'
         },
         operator: 'In',
